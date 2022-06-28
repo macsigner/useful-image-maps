@@ -1,0 +1,15 @@
+/**
+ * link-cols bem module
+ */
+
+.link-cols {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(10px, 1fr));
+    margin-top: 4rem;
+    padding-top: 4rem;
+    border-top: 1px solid $color-off-black;
+
+    h2 {
+        margin-top: 0;
+    }
+}
