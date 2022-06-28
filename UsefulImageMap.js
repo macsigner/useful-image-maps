@@ -12,6 +12,20 @@ class UsefulImageMap {
         this.areas = this._getInitialMapAreas();
         this.scale = this._getScale();
 
+        let resizeTimeout;
+
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+
+            resizeTimeout = setTimeout(this.update.bind(this), 500);
+        });
+
+        this.renderAreas();
+    }
+
+    update() {
+        this.scale = this._getScale();
+
         this.renderAreas();
     }
 
