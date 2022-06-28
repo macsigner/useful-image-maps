@@ -23,12 +23,18 @@ class UsefulImageMap {
         this.renderAreas();
     }
 
+    /**
+     * Update privates.
+     */
     update() {
         this.scale = this._getScale();
 
         this.renderAreas();
     }
 
+    /**
+     * Render ares from this.areas.
+     */
     renderAreas() {
         this.imageMap.innerHTML = '';
 
@@ -37,6 +43,12 @@ class UsefulImageMap {
         }
     }
 
+    /**
+     * Create single area element from object.
+     * @param obj
+     * @returns {HTMLAreaElement}
+     * @private
+     */
     _createAreaElement(obj) {
         let el = document.createElement('area');
 
@@ -122,6 +134,12 @@ class UsefulImageMap {
         return coords;
     }
 
+    /**
+     * Get scaled area coords from object.
+     * @param obj
+     * @returns {string}
+     * @private
+     */
     _getScaledCoords(obj) {
         let coords;
 
@@ -145,6 +163,11 @@ class UsefulImageMap {
         return coords;
     }
 
+    /**
+     * Get current scale factor of image map.
+     * @returns {number}
+     * @private
+     */
     _getScale() {
         return this.image.width / this.image.naturalWidth;
     }
