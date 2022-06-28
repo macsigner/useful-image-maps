@@ -56,7 +56,7 @@ class UsefulImageMap {
             el[key] = obj.attributes[key];
         }
 
-        if(this.scale !== 1) {
+        if (this.scale !== 1) {
             el.coords = this._getScaledCoords(obj);
         }
 
@@ -105,11 +105,11 @@ class UsefulImageMap {
 
         switch (obj.attributes.shape) {
             case 'circle':
-                coords = {
+                coords = [{
                     x: arrCoords[0],
                     y: arrCoords[1],
                     r: arrCoords[2],
-                }
+                }]
                 break;
             case 'rect':
                 coords = [{
@@ -142,17 +142,27 @@ class UsefulImageMap {
      */
     _getScaledCoords(obj) {
         let coords;
+        let arr = [];
 
         switch (obj.attributes.shape) {
             case 'rect':
-                let arr = [];
-
-                for(let item of obj.coords) {
+            case 'poly':
+                for (let item of obj.coords) {
                     arr.push(Math.round(item.x * this.scale));
                     arr.push(Math.round(item.y * this.scale));
                 }
 
-                coords =  arr.join(',');
+                coords = arr.join(',');
+
+                break;
+            case 'circle':
+                for (let item of obj.coords) {
+                    arr.push(Math.round(item.x * this.scale));
+                    arr.push(Math.round(item.y * this.scale));
+                    arr.push(Math.round(item.r * this.scale));
+                }
+
+                coords = arr.join(',');
 
                 break;
             default:
