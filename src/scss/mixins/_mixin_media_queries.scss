@@ -1,0 +1,27 @@
+/**
+ * mixin-media-queries bem module
+ */
+
+@mixin media-max-width($width) {
+    @media screen and (max-width: #{$width}) {
+        @content;
+    }
+}
+
+@mixin media-desktop-small() {
+    @include media-max-width($breakpoint-desktop-small) {
+        @content;
+    }
+}
+
+@mixin media-tablet() {
+    @include media-max-width($breakpoint-tablet) {
+        @content;
+    }
+}
+
+@mixin media-mobile() {
+    @include media-max-width($breakpoint-mobile) {
+        @content;
+    }
+}

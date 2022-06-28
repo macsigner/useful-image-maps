@@ -1,0 +1,29 @@
+/**
+ * Settings variables.
+ */
+@use "sass:math";
+
+$base-width-max-width: 120rem;
+$base-width-side-margin: 2rem;
+
+/* colors */
+$color-black: #000;
+$color-white: #FFF;
+$color-off-black: #181717;
+$color-off-white: whitesmoke;
+$color-alert: red;
+$color-success: green;
+
+/* font-sizes */
+$font-size-90: 1.4rem;
+$font-size-100: 1.8rem;
+$font-size-110: 4rem;
+
+/* settings */
+$transition-duration-default-in: .3s;
+$transition-duration-default-out: .8s;
+
+/* breakpoints */
+$breakpoint-desktop-small: math.div(128em, 1.6);
+$breakpoint-tablet: math.div(90em, 1.6);
+$breakpoint-mobile: math.div(60em, 1.6);

@@ -1,0 +1,20 @@
+// Settings
+@import '/node_modules/normalize.css/normalize.css';
+@import 'settings/variables';
+
+// Mixins
+@import 'mixins/mixin_media_queries';
+
+// Base
+@import 'imports/custom_reset';
+@import 'imports/base';
+@import 'imports/helper';
+
+// Early modules
+@import 'modules/main_header';
+@import 'modules/main_nav';
+
+// Default modules
+
+// Late modules
+@import 'modules/main_footer'

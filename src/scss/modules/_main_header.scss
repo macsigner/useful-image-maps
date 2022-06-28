@@ -1,0 +1,17 @@
+/**
+ * main-header bem module
+ */
+
+.main-header {
+    display: flex;
+    align-items: flex-end;
+
+    &__title {
+        margin: 0;
+        line-height: 1;
+    }
+
+    &__nav {
+        margin-left: auto;
+    }
+}

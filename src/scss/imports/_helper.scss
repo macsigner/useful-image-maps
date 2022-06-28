@@ -1,0 +1,9 @@
+/**
+ * helper bem module
+ */
+
+.invisible {
+    position: absolute !important;
+    left: -9999em !important;
+    opacity: 0 !important;
+}

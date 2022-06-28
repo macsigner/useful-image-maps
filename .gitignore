@@ -1,0 +1,6 @@
+.DS_Store
+.prettierignore
+.idea
+.parcel-cache
+node_modules
+dist

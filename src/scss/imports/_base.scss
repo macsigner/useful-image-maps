@@ -1,0 +1,52 @@
+/**
+ * Side wide custom properties.
+ */
+:root {
+    --base-width-max-width: #{$base-width-max-width};
+    --base-width-side-margin: #{$base-width-side-margin};
+}
+
+body {
+    font: 1.6rem/1.6 sans-serif;
+}
+
+:root {
+    --color: black;
+    --bg-color: whitesmoke;
+}
+
+/**
+ * Sticky footer.
+ */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+body > header,
+body > footer {
+    flex: 0 0 auto;
+}
+
+body > main {
+    flex: 1 1 auto;
+}
+
+/**
+ * Add base width to handle horizontal alignment.
+ */
+.base-width {
+    width: calc(100% - (2 * var(--base-width-side-margin)));
+    max-width: var(--base-width-max-width);
+    margin-right: auto;
+    margin-left: auto;
+}
+
+body > header,
+body > footer {
+    @extend .base-width;
+
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}

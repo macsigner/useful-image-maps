@@ -1,0 +1,39 @@
+/**
+ * main-nav bem module
+ */
+
+.main-nav {
+    a {
+        white-space: nowrap;
+    }
+
+    > ul {
+        display: flex;
+    }
+
+    li {
+        position: relative;
+    }
+
+    > ul > li + li {
+        margin-left: 1em;
+    }
+
+    li ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 100%;
+    }
+
+    li:hover > ul {
+        display: block;
+    }
+
+    li:last-child > ul {
+        right: 0;
+        left: auto;
+        text-align: right;
+    }
+}
