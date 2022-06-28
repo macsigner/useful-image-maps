@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" href="scss/main.scss">
 
-    <title>Useful image mpas</title>
+    <title>Useful image maps</title>
 
 </head>
 <body>
@@ -14,6 +14,30 @@
     <h1 class="main-header__title">Useful image mpas</h1>
 </header>
 <main>
+    <div class="base-width">
+        <img alt="Geometric shapes. Square, circle, polygon"
+             height="480"
+             src="img/image-map.svg"
+             width="777"
+             usemap="#image-map">
+        <map name="image-map">
+            <area target="" alt="Map target rectangle" title="Map target rectangle" href="#map-target-rectangle"
+                  coords="72,84,319,146" shape="rect">
+            <area target="" alt="Map target square" title="Map target square" href="#map-target-square"
+                  coords="553,61,673,178" shape="rect">
+            <area target="" alt="Map target polygon" title="Map target polygon" href="#map-target-polygon"
+                  coords="376,220,306,316,407,291,479,308,477,229,424,189,432,256,381,276" shape="poly">
+            <area target="" alt="Map target circle" title="Map target circle" href="#map-target-circle"
+                  coords="194,393,49" shape="circle">
+            <area target="" alt="Map target ellipsis" title="Map target ellipsis" href="#map-target-ellipsis"
+                  coords="510,397,13" shape="circle">
+            <area target="" alt="Map target ellipsis" title="Map target ellipsis" href="#map-target-ellipsis"
+                  coords="717,398,13" shape="circle">
+            <area target="" alt="Map target ellipsis" title="Map target ellipsis" href="#map-target-ellipsis"
+                  coords="509,383,532,374,561,370,593,367,623,369,650,369,676,372,701,377,720,385,719,411,694,419,666,425,631,429,596,429,564,426,537,421,508,412"
+                  shape="poly">
+        </map>
+    </div>
 </main>
 <script src="js/scripts.js" type="module"></script>
 </body>
