@@ -10,6 +10,31 @@ class UsefulImageMap {
         this.image = el;
         this.imageMap = document.querySelector(`[name=${this.image.useMap.split('#')[1]}]`);
         this.areas = this._getInitialMapAreas();
+        this.scale = this._getScale();
+
+        this.renderAreas();
+    }
+
+    renderAreas() {
+        this.imageMap.innerHTML = '';
+
+        for (let area of this.areas) {
+            this.imageMap.appendChild(this._createAreaElement(area));
+        }
+    }
+
+    _createAreaElement(obj) {
+        let el = document.createElement('area');
+
+        for (let key of Object.keys(obj.attributes)) {
+            el[key] = obj.attributes[key];
+        }
+
+        if(this.scale !== 1) {
+            el.coords = this._getScaledCoords(obj);
+        }
+
+        return el;
     }
 
     /**
@@ -81,6 +106,33 @@ class UsefulImageMap {
         }
 
         return coords;
+    }
+
+    _getScaledCoords(obj) {
+        let coords;
+
+        switch (obj.attributes.shape) {
+            case 'rect':
+                let arr = [];
+
+                for(let item of obj.coords) {
+                    arr.push(Math.round(item.x * this.scale));
+                    arr.push(Math.round(item.y * this.scale));
+                }
+
+                coords =  arr.join(',');
+
+                break;
+            default:
+                coords = obj.attributes.coords;
+                break;
+        }
+
+        return coords;
+    }
+
+    _getScale() {
+        return this.image.width / this.image.naturalWidth;
     }
 }
 
