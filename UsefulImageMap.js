@@ -1,3 +1,5 @@
+import * as Tools from '/src/js/tools'
+
 /**
  * Image map drawn to canvas.
  */
@@ -12,6 +14,8 @@ class UsefulImageMap {
         this.areas = this._getInitialMapAreas();
         this.scale = this._getScale();
 
+        this._createCanvasStructure();
+
         let resizeTimeout;
 
         window.addEventListener('resize', () => {
@@ -19,6 +23,10 @@ class UsefulImageMap {
 
             resizeTimeout = setTimeout(this.update.bind(this), 500);
         });
+
+        this.imageMap.addEventListener('click', Tools.delegateEvent('area', (e) => {
+            console.log('click');
+        }));
 
         this.renderAreas();
     }
@@ -171,6 +179,21 @@ class UsefulImageMap {
         }
 
         return coords;
+    }
+
+    /**
+     * Create canvas structure for positioning below the image.
+     * @private
+     */
+    _createCanvasStructure() {
+        this.imageWrapper = document.createElement('div');
+        this.imageWrapper.classList.add('useful-image-map');
+        this.image.parentNode.insertBefore(this.imageWrapper, this.image);
+        this.imageWrapper.appendChild(this.image);
+
+        this.canvas = document.createElement('canvas');
+
+        this.imageWrapper.appendChild(this.canvas);
     }
 
     /**
